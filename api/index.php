@@ -6,7 +6,7 @@
     <title>Pemantauan Yanami.store | Dashboard Status</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <style>
         .pulse {
@@ -34,7 +34,7 @@
             to { transform: translateY(0); opacity: 1; }
         }
         .bounce {
-            animation: bounce 1s infinite;
+            animation: bounce1s infinite;
         }
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
@@ -328,7 +328,7 @@
                                     </div>
                                     <div class="ml-4">
                                         <div class="text-sm font-medium text-gray-900 dark:text-white">Basis Data</div>
-                                        <div class="text-sm text-gray-500 dark:text-gray-400">Cluster PostgreSQL</div>
+                                        <div class="text-sm text-gray-500 dark:text-gray-400">DB.json</div>
                                     </div>
                                 </div>
                             </td>
@@ -368,10 +368,7 @@
         </div>
         
         <!-- Footer -->
-        <footer class="mt-12 text-center text-sm text-gray-500 dark:text-gray-400 slide-in">
-            <p>Pemantauan disediakan oleh FakeStatus Pro • Terakhir diperiksa: <span id="footerLastChecked">Baru saja</span></p>
-            <p class="mt-1">Ini adalah halaman status simulasi hanya untuk tujuan demonstrasi</p>
-        </footer>
+      
     </div>
 
     <script>
