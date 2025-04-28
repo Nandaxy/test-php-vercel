@@ -81,13 +81,13 @@
                     </a>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <a href="https://yanami.store" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                         <i class="fas fa-home mr-1"></i> Main Site
                     </a>
                     <a href="#" class="text-blue-600 dark:text-blue-400 font-medium">
                         <i class="fas fa-chart-line mr-1"></i> Status
                     </a>
-                    <a href="/contact" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <a href="https://yanami.store/kontak" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                         <i class="fas fa-envelope mr-1"></i> Contact
                     </a>
                 </div>
