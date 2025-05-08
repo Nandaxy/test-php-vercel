@@ -1,73 +1,60 @@
-<?php
-$title = "Todo List SPA (LocalStorage)";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title><?= $title ?></title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Neo-Brutal Form</title>
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: 'Courier New', monospace;
+      padding: 50px;
+      color: #111;
+    }
+    .card {
+      background: white;
+      border: 4px solid black;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 8px 8px 0px black;
+    }
+    input[type="text"], input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 3px solid black;
+      background: #fff;
+      font-size: 1em;
+    }
+    input[type="submit"] {
+      background: black;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .result {
+      background: #ffde59;
+      border: 3px solid black;
+      padding: 15px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
 </head>
-<body class="bg-light">
-<div class="container mt-5">
-  <h1 class="text-center mb-4"><?= $title ?></h1>
-  
-  <div class="input-group mb-3">
-    <input type="text" id="todoInput" class="form-control" placeholder="Tambah aktivitas...">
-    <button class="btn btn-primary" onclick="addTodo()">Tambah</button>
+<body>
+  <div class="card">
+    <h2>Masukkan Nama Kamu</h2>
+    <form action="" method="POST">
+      <input type="text" name="nama" placeholder="Nama kamu..." required>
+      <input type="submit" value="Kirim">
+    </form>
+
+    <?php
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nama = htmlspecialchars($_POST['nama']);
+        echo "<div class='result'>Halo, <u>$nama</u>! Gaya Brutal Banget!</div>";
+      }
+    ?>
   </div>
-  
-  <ul id="todoList" class="list-group"></ul>
-</div>
-
-<script>
-let todos = [];
-
-function loadTodos() {
-  const data = localStorage.getItem('todos');
-  todos = data ? JSON.parse(data) : [];
-  renderTodos();
-}
-
-function saveTodos() {
-  localStorage.setItem('todos', JSON.stringify(todos));
-}
-
-function renderTodos() {
-  const list = document.getElementById('todoList');
-  list.innerHTML = '';
-  todos.forEach((todo, index) => {
-    list.innerHTML += `
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <span contenteditable="true" onblur="editTodo(${index}, this.innerText)">${todo}</span>
-        <button class="btn btn-danger btn-sm" onclick="deleteTodo(${index})">Hapus</button>
-      </li>`;
-  });
-}
-
-function addTodo() {
-  const input = document.getElementById('todoInput');
-  const text = input.value.trim();
-  if (text) {
-    todos.push(text);
-    input.value = '';
-    saveTodos();
-    renderTodos();
-  }
-}
-
-function deleteTodo(index) {
-  todos.splice(index, 1);
-  saveTodos();
-  renderTodos();
-}
-
-function editTodo(index, text) {
-  todos[index] = text.trim();
-  saveTodos();
-}
-
-document.addEventListener('DOMContentLoaded', loadTodos);
-</script>
 </body>
 </html>
